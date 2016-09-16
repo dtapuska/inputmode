@@ -1,0 +1,68 @@
+<pre class='metadata'>
+Title: inputmode
+Shortname: inputmode
+Level: 1
+Status: CG-DRAFT
+Group: WICG
+URL: https://raw.githubusercontent.com/dtapuska/inputmode/master/index.html
+Editor: Dave Tapuska, Chromium https://chromium.org, dtapuska@chromium.org
+Abstract: This standard describes an attribute that is applicable to fields that have an editing capability. Most modern virtual keyboards allow customization and this brings a redefinition of the inputmode attribute to modernize it.
+</pre>
+
+<pre class='anchors'>
+url: https://developer.android.com/reference/android/view/inputmethod/EditorInfo.html#IME_ACTION_DONE; type: dfn; spec: ENCODING
+    text: action value
+urlPrefix: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input; type: dfn; spec: ENCODING
+    text: attr-mozactionhint
+url: https://html.spec.whatwg.org/multipage/forms.html#input-modalities:-the-inputmode-attribute; type: dfn; spec: ENCODING
+    text: inputmode
+url: https://html.spec.whatwg.org/multipage/forms.html#url-state-(type=url); type: dfn; spec: ENCODING
+    text: url
+url: https://html.spec.whatwg.org/multipage/forms.html#url-state-(type=email); type: dfn; spec: ENCODING
+    text: email
+url: https://html.spec.whatwg.org/multipage/forms.html#url-state-(type=tel); type: dfn; spec: ENCODING
+    text: tel
+url: https://www.w3.org/TR/xhtml-basic/#s_inputmode; type: dfn; spec: ENCODING
+    text: xhtml inputmode
+urlPrefix: https://w3c.github.io/editing/execCommand.html; type: dfn; spec: ENCODING
+    text: editing-host
+    text: editable
+urlPrefix: https://html.spec.whatwg.org/multipage/infrastructure.html; type: dfn; spec: ENCODING
+    text: enumerated attribute
+    text: missing value default
+url: https://html.spec.whatwg.org/multipage/forms.html#attributes-common-to-form-controls; type: dfn; spec: ENCODING
+    text: form controls
+url: https://html.spec.whatwg.org/multipage/forms.html#the-form-element; type: dfn; spec: ENCODING
+    text: form
+</pre>
+
+
+Introduction {#intro}
+================
+<em>This section is non-normative.</em>
+
+iOS and Android platforms have provided the ability for native apps to customize which virtual keyboard is provided during editing. Web authors have requested the same richness on the web platform. [=xhtml inputmode=] was originally specified in the XHTML Basic standards and over time [=inputmode=] migrated into the HTML5 specification. The parameter is not implemented by any major vendor and a number of the properties do not make sense with today's keyboard properties. This standard is about respecifying the attribute values and permitting it's use on [=editing-host=] elements.
+
+<code>inputmode</code>. {#inputmode}
+=========
+
+The <dfn element-attr for="Element"><code>inputmode</code></dfn> content attribute is an [=enumerated attribute=] with the following keywords:
+
+<ul>
+    <li><dfn attr-value for="Element/inputmode"><code>tel</code></dfn></li>
+    <li><dfn attr-value for="Element/inputmode"><code>url</code></dfn></li>
+    <li><dfn attr-value for="Element/inputmode"><code>email</code></dfn></li>
+    <li><dfn attr-value for="Element/inputmode"><code>numeric</code></dfn></li>
+    <li><dfn attr-value for="Element/inputmode"><code>decimal</code></dfn></li> 
+    <li><dfn attr-value for="Element/inputmode"><code>search</code></dfn></li> 
+</ul>
+
+The inputmode SHALL be implemented on all [=editing-host=] elements and [=form controls=].
+
+The user-agent is free to choose the [=missing value default=] based on contextual information. For example if the virtual keyboard appears on an element contained inside a [=form control=] of type [=tel=], [=email=] or [=url=] it MAY wish to use an appropriate default for each.
+
+Internationalization {#internationization}
+============
+<code>decimal</code> SHALL show a keyboard with the appropriate locale separator.
+
+
