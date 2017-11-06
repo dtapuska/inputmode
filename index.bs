@@ -49,6 +49,7 @@ iOS and Android platforms have provided the ability for native apps to customize
 The <dfn element-attr for="Element"><code>inputmode</code></dfn> content attribute is an [=enumerated attribute=] with the following keywords:
 
 <ul>
+    <li><dfn attr-value for="Element/inputmode"><code>none</code></dfn></li>
     <li><dfn attr-value for="Element/inputmode"><code>tel</code></dfn></li>
     <li><dfn attr-value for="Element/inputmode"><code>url</code></dfn></li>
     <li><dfn attr-value for="Element/inputmode"><code>email</code></dfn></li>
@@ -59,7 +60,7 @@ The <dfn element-attr for="Element"><code>inputmode</code></dfn> content attribu
 
 The inputmode SHALL be implemented on all [=editing-host=] elements and [=form controls=].
 
-The user-agent is free to choose the [=missing value default=] based on contextual information. For example if the virtual keyboard appears on an element contained inside a [=form control=] of type [=tel=], [=email=] or [=url=] it MAY wish to use an appropriate default for each.
+The user-agent is free to choose the [=missing value default=] based on contextual information. For example if the virtual keyboard appears on an element contained inside a [=form control=] of type [=tel=], [=email=] or [=url=] it MAY wish to use an appropriate default for each. <code>none</code> indicates that no virtual keyboard SHOULD be shown.
 
 Internationalization {#internationization}
 ============
